@@ -1,0 +1,9 @@
+<h1><%= @magazine.title %></h1>
+
+<ol>
+<% @magazine.issues.each do |issue| -%>
+    <li>
+        <%= link_to issue.title, issue_path(issue) %>
+    </li>
+<% end -%>
+</ol>
