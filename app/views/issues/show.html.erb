@@ -1,0 +1,9 @@
+<h1><%= @issue.title %></h1>
+
+<ol>
+<% @issue.articles.each do |article| -%>
+    <li>
+        <%= link_to article.title, article_path(article) %>
+    </li>
+<% end -%>
+</ol>
