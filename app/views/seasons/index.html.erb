@@ -1,14 +1,19 @@
 <% @seasons.each do |season| %>
   <div class="season">
     <div class="header">
-      <h3><%= "#{season.year}/#{season.year + 1}" %></h3>
+      <h3><span class="minor"><%= "#{season.year}/" %></span><%= "#{season.year + 1}" %></h3>
     </div>
 
     <div class="container">
       <div class="row">
         <% season.magazines.each do |magazine| %>
           <div class="magazine col-lg-4">
-              <h5><%= link_to magazine.title, magazine_path(magazine) %></h5>
+            <%= link_to magazine_path(magazine) do %>
+              <%= image_tag("covers/angliukas.png", :class => "background") %>
+              <div class="details">
+                <h4 class="title"><%= magazine.title %></h4>
+              </div>
+            <% end %>
           </div>
         <% end %>
       </div>

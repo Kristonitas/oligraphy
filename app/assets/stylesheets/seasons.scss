@@ -3,8 +3,37 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .season .magazine {
-  min-height: 600px;
+  padding: 0;
+  position: relative;
+  // min-height: 600px;
   border: 5px solid white;
+  background-color: black;
+}
+
+.season .magazine .details {
+  position: absolute;
+  color: white;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.season .magazine .details .title {
+  padding: 10px;
+  background-color: rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.season .magazine .background {
+  // position: absolute;
+  width: 100%;
+  // height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.season .magazine:hover .background {
+  opacity: 0.75;
 }
 
 .season .header{
@@ -12,6 +41,10 @@
   background-color: #AAC;
   z-index: 1;
   position: relative;
+}
+
+.season .header .minor {
+  font-size: 1.4rem;
 }
 
 .season .header.fixed {

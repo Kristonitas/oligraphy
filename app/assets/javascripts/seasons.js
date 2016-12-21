@@ -3,6 +3,8 @@ var stickyHeaders = (function() {
   var $window = $(window),
       $stickies;
 
+  window.st = $stickies;
+
   var load = function(stickies) {
 
     if (typeof stickies === "object" && stickies instanceof jQuery && stickies.length > 0) {
@@ -21,8 +23,25 @@ var stickyHeaders = (function() {
       $window.off("scroll.stickies").on("scroll.stickies", function() {
       _whenScrolling();   
       });
+
+      $window.resize(function() {
+      _whenResizing();   
+      });
     }
   };
+
+  var _whenResizing = function() {
+    $stickies.each(function() {
+      var $thisSticky = $(this);
+
+      $thisSticky
+            .data('originalPosition', $thisSticky.parent().offset().top)
+            .data('originalHeight', $thisSticky.outerHeight())
+              .parent()
+              .height($thisSticky.outerHeight());   
+    })
+    _whenScrolling();
+  }
 
   var _whenScrolling = function() {
 
@@ -62,9 +81,15 @@ var stickyHeaders = (function() {
   };
 })();
 
-$(function() {
+var ready = function(){
   stickyHeaders.load($(".season .header"));
-});
+};
+
+$(document).on('turbolinks:load', ready);
+
+// $( window ).resize(function() {
+//   stickyHeaders.load($(".season .header"));
+// });
 
 // var stickyHeaders = (function() {
 

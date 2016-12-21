@@ -8,12 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <% if @magazine %>
-      <link href="<%= magazine_stylesheet_path(@magazine) %>" rel="stylesheet" type="text/css" />
-    <% end %>
   </head>
 
   <body>
+    <% if @magazine %>
+      <link href="<%= magazine_stylesheet_path(@magazine) %>" rel="stylesheet" type="text/css" />
+    <% end %>
+    
     <div class="top">
       <%= link_to "Oligrafija", root_path %>
     </div>
