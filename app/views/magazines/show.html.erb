@@ -1,9 +1,22 @@
-<h1><%= @magazine.title %></h1>
-
-<ol>
-<% @magazine.issues.each do |issue| -%>
-    <li>
-        <%= link_to issue.title, issue_path(issue) %>
-    </li>
-<% end -%>
-</ol>
+<div class="container magazine">
+  <div class="row">
+    <div class="col-lg-6">
+      <h1><%= @magazine.title %></h1>
+    </div>
+    
+    <div class="col-lg-6">
+      <ol>
+      <% @magazine.issues.each do |issue| -%>
+        <li>
+            <h5><%= link_to issue.title, issue_path(issue) %></h5>
+            <ol>
+              <% issue.articles.each do |article| %>
+                <li><%= link_to article.title, article_path(article) %>
+              <% end %>
+            </ol>
+        </li>
+      <% end -%>
+      </ol>
+    </div>
+  </div>
+</div>

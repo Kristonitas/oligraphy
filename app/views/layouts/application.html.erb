@@ -14,23 +14,22 @@
   </head>
 
   <body>
-    <div class="container">
-      <% flash.each do |name, msg| -%>
-        <%= content_tag :div, class: "alert alert-#{name} alert-dismissible fade in" do %>
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <%= msg %>
-        <% end %>
-      <% end -%>
-
-      <%= yield %>
-
-      <% if Rails.env.development? %>
-        <div class="debug">
-          <%= debug(params)%>
-        </div>
-      <% end %>
+    <div class="top">
+      <%= link_to "Oligrafija", root_path %>
     </div>
+    <% flash.each do |name, msg| -%>
+      <%= msg %>
+    <% end -%>
+
+    <%= yield %>
+
+    <% if Rails.env.development? %>
+      <div class="alert alert-info alert-dismissible fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <%= debug(params)%>
+      </div>
+    <% end %>
   </body>
 </html>

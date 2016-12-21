@@ -1,11 +1,13 @@
-<%= link_to '<-' + @issue.magazine.title, magazine_path(@issue.magazine) %>
+<div class="container issue">
+  <%= link_to '<-' + @issue.magazine.title, magazine_path(@issue.magazine) %>
 
-<h1><%= @issue.title %></h1>
+  <h1><%= @issue.title %></h1>
 
-<ol>
-<% @issue.articles.each do |article| -%>
-    <li>
-        <%= link_to article.title, article_path(article) %>
-    </li>
-<% end -%>
-</ol>
+  <ol>
+  <% @issue.articles.each do |article| -%>
+      <li>
+          <%= link_to article.title, article_path(article) %>
+      </li>
+  <% end -%>
+  </ol>
+</div>

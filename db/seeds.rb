@@ -8,18 +8,20 @@
 
 lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sit amet neque quis nulla porta elementum. Phasellus ultrices porta dolor, vitae sollicitudin quam luctus nec. Fusce non sem urna. Phasellus felis ante, mollis ut viverra at, egestas et arcu. Sed luctus at metus quis mollis. Nam venenatis blandit turpis, vitae fermentum mauris varius sit amet. Nullam sit amet felis at augue semper pulvinar quis non libero. Pellentesque non scelerisque mauris. Cras mollis commodo erat, quis pulvinar quam.
 
-  Curabitur non urna vitae orci consectetur tincidunt et sollicitudin enim. Ut id lorem mi. Sed hendrerit orci at consectetur mollis. Curabitur lacus est, rutrum in consequat eu, volutpat at mi. In volutpat dolor lacus, at placerat sem volutpat in. Phasellus auctor nibh eu nibh finibus, vel ultrices sem condimentum. Pellentesque viverra vestibulum nunc at bibendum. Etiam a mauris sed ligula semper facilisis et vel eros. Ut at enim ornare velit sollicitudin aliquet ac blandit elit.'
+  **Curabitur non urna vitae orci consectetur tincidunt et sollicitudin enim. Ut id lorem mi. Sed hendrerit orci at consectetur mollis. Curabitur lacus est, rutrum in consequat eu, volutpat at mi. In volutpat dolor lacus, at placerat sem volutpat in. Phasellus auctor nibh eu nibh finibus, vel ultrices sem condimentum. Pellentesque viverra vestibulum nunc at bibendum. Etiam a mauris sed ligula semper facilisis et vel eros. Ut at enim ornare velit sollicitudin aliquet ac blandit elit.**'
+
+RandomWord.exclude_list << /_/
 
 for y in 2005..2015
   season = Season.create(year: y)
 
   ['LitBo News', 'LitCho News', 'LitFo News'].each do |magazine_title|
     color = "%06x" % (rand * 0xffffff)
-    magazine = Magazine.create(title: "#{magazine_title} #{y}", style: "body{background-color: \##{color};}", season: season)
+    magazine = Magazine.create(title: "#{magazine_title} #{y + 1}", style: "body{background-color: \##{color};}", season: season)
     for i in (1..3)
       issue = Issue.create(title: "Numeris \##{i}", magazine: magazine)
       for i in (1..10)
-        title = RandomWord.nouns.next + " is not what you think it is"
+        title = RandomWord.nouns.next.capitalize + " is not what you think it is"
         Article.create(title: title, content: lorem, issue: issue)
       end
     end

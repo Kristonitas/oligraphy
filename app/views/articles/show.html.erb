@@ -1,5 +1,7 @@
-<%= link_to '<-' + @article.issue.title, issue_path(@article.issue) %>
+<div class="container article">
+  <%= link_to '<-' + @article.issue.title, issue_path(@article.issue) %>
 
-<h1><%= @article.title %></h1>
+  <h1><%= @article.title %></h1>
 
-<%= markdown(@article.content) %>
+  <%= markdown(@article.content) %>
+</div>

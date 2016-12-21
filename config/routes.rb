@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "seasons#index"
 
   get 'articles/:id', to: 'articles#show', as: :article
   get 'issues/:id', to: 'issues#show', as: :issue
