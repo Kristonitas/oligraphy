@@ -25,12 +25,12 @@
     <%= yield %>
 
     <% if Rails.env.development? %>
-      <div class="alert alert-info alert-dismissible fade in" role="alert">
+      <!-- <div class="alert alert-info alert-dismissible fade in" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
         <%= debug(params)%>
-      </div>
+      </div> -->
     <% end %>
   </body>
 </html>

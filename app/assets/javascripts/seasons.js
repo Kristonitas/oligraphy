@@ -21,11 +21,12 @@ var stickyHeaders = (function() {
       });
 
       $window.off("scroll.stickies").on("scroll.stickies", function() {
+      _whenResizing();
       _whenScrolling();   
       });
 
       $window.resize(function() {
-      _whenResizing();   
+      _whenResizing();
       });
     }
   };
@@ -86,7 +87,6 @@ var ready = function(){
 };
 
 $(document).on('ready', ready);
-$(document).on('load', ready);
 
 // $( window ).resize(function() {
 //   stickyHeaders.load($(".season .header"));
