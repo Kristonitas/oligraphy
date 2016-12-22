@@ -1,13 +1,15 @@
 <div class="container issue">
-  <%= link_to '<-' + @issue.magazine.title, magazine_path(@issue.magazine) %>
+  <%= link_to '<-' + @issue.magazine.title, magazine_path(@issue.magazine), :class => "back" %>
 
-  <h1><%= @issue.title %></h1>
+  <h1 class="title"><%= @issue.title %></h1>
 
-  <ol>
   <% @issue.articles.each do |article| -%>
-      <li>
-          <%= link_to article.title, article_path(article) %>
-      </li>
+    <div class="article">
+      <h2><%= link_to article.title, article_path(article) %></h2>
+
+      <div class="content">
+        <%= markdown(article.content) %>
+      </div>
+    </div>
   <% end -%>
-  </ol>
 </div>
