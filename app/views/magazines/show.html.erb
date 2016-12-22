@@ -1,22 +1,29 @@
 <div class="container magazine">
-  <div class="row">
-    <div class="col-lg-6">
-      <h1><%= @magazine.title %></h1>
+  <h1><%= @magazine.title %></h1>
+
+  <% @magazine.issues.each do |issue| -%>
+    <div class="row issue">
+      <div class="col-lg-6 cover">
+
+        <%= link_to issue_path(issue) do %>
+          <%= image_tag("covers/angliukas-issue.png", :class => "background") %>
+          <div class="details">
+            <h4 class="title"><%= issue.title %></h4>
+          </div>
+        <% end %>
+
+      </div>
+
+
+      
+      <div class="col-lg-6 index">
+        <ol>
+          <% issue.articles.each do |article| %>
+            <li><%= link_to article.title, article_path(article) %></li>
+          <% end %>
+        </ol>
+
+      </div>
     </div>
-    
-    <div class="col-lg-6">
-      <ol>
-      <% @magazine.issues.each do |issue| -%>
-        <li>
-            <h5><%= link_to issue.title, issue_path(issue) %></h5>
-            <ol>
-              <% issue.articles.each do |article| %>
-                <li><%= link_to article.title, article_path(article) %>
-              <% end %>
-            </ol>
-        </li>
-      <% end -%>
-      </ol>
-    </div>
-  </div>
+  <% end -%>
 </div>

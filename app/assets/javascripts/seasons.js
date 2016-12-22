@@ -85,7 +85,8 @@ var ready = function(){
   stickyHeaders.load($(".season .header"));
 };
 
-$(document).on('turbolinks:load', ready);
+$(document).on('ready', ready);
+$(document).on('load', ready);
 
 // $( window ).resize(function() {
 //   stickyHeaders.load($(".season .header"));
