@@ -12,6 +12,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'font-awesome-sass', '~> 4.5.0'
 
+gem 'activeadmin', '~> 1.0.0.pre4'
+gem 'devise'
+
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
@@ -23,6 +26,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '4.2.1'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

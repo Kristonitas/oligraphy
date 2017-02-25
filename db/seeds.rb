@@ -206,3 +206,4 @@ for i in (1..10)
   title = RandomWord.nouns.next.capitalize + " is not what you think it is"
   Article.create(title: title, content: lorem, issue: issueFo3)
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
